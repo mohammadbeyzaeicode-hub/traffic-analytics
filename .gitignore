@@ -2,3 +2,7 @@
 __pycache__/
 *.egg-info/
 PROJECT_NOTES.md
+data/*
+!data/.gitkeep
+*.mp4
+scratch/
