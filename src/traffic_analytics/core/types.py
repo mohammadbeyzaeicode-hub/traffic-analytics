@@ -20,3 +20,18 @@ class Detections:
 
     def __len__(self) -> int:
         return len(self.xyxy)
+    
+@dataclass
+class Tracks:
+    """Tracker output for one frame: detections with a persistent identity.
+
+    Same layout as Detections, plus track_id: (N,) int.
+    """
+
+    xyxy: np.ndarray = field(default_factory=lambda: np.empty((0, 4), dtype=np.float32))
+    confidence: np.ndarray = field(default_factory=lambda: np.empty((0,), dtype=np.float32))
+    class_id: np.ndarray = field(default_factory=lambda: np.empty((0,), dtype=int))
+    track_id: np.ndarray = field(default_factory=lambda: np.empty((0,), dtype=int))
+
+    def __len__(self) -> int:
+        return len(self.xyxy)    
